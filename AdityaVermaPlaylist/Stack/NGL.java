@@ -27,4 +27,11 @@ public class NGL {
         }
         return arr;
     }
+
+    public static int[] previousGreaterElements2(int[] nums) {
+
+        int[] result=new int[nums.length];
+        return result;
+    }
+
 }

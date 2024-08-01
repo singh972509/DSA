@@ -5,7 +5,8 @@ import java.util.Stack;
 public class NGR {
 //    Nearest greatest left
 public static void main(String[] args) {
-
+    int[] nums={1,2,3,5,4,7};
+int[] res=nextGreaterElements1(nums);
 }
     public static int[] nextGreaterElements1(int[] nums) {
         int[] list1=new int[nums.length];
@@ -34,5 +35,24 @@ public static void main(String[] args) {
             i++;j--;
         }
         return list1;
+    }
+    public static int[] nextGreaterElements2(int[] nums) {
+        int[] result=new int[nums.length];
+        Stack<Integer> stack=new Stack<>();
+        int index=0;
+        for(int i=nums.length-1;i>=0;i--){
+            while(!stack.isEmpty() && stack.peek()>=nums[i]){
+                stack.pop();
+            }
+            if(stack.isEmpty()){
+                result[index]=-1;
+            }
+            else{
+                result[index]=stack.peek();
+            }
+            index++;
+            stack.push(nums[i]);
+        }
+        return result;
     }
 }
